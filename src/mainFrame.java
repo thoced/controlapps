@@ -5,10 +5,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import GUI.DialogAjoutFiche;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 
 public class mainFrame {
 
 	private JFrame frame;
+	private JMenuItem mAjoutFicheControl;
 
 	/**
 	 * Launch the application.
@@ -54,7 +60,15 @@ public class mainFrame {
 		JMenu menuGestion = new JMenu("Gestion des contrôles");
 		menuBar.add(menuGestion);
 		
-		JMenuItem mAjoutFicheControl = new JMenuItem("Ajouter une fiche de controle");
+		mAjoutFicheControl = new JMenuItem("Ajouter une fiche de controle");
+		mAjoutFicheControl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				// creation de la boite de dialog ajout d'une fiche de control
+				DialogAjoutFiche daf = new DialogAjoutFiche(null,"Création d'une fiche de controle",true);
+				daf.setVisible(true);
+			}
+		});
 		menuGestion.add(mAjoutFicheControl);
 	}
 
